@@ -1,0 +1,2 @@
+class OrderItemStatusesController < ApplicationController
+end
