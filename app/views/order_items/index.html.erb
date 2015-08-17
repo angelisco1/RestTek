@@ -1,0 +1,6 @@
+<h1>Order Items</h1>
+<ul>
+<% @order_items.each do |order_item| %>
+	<li><%= order_item.notes %> - <%= order_item.order_id %> - <%= order_item.item_id %></li>
+<% end %>
+</ul>

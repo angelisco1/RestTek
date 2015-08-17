@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :roles do
     resources :users
   end
+  
+  resources :order_items
 
   resources :orders do
     resources :items
@@ -16,9 +18,10 @@ Rails.application.routes.draw do
     resources :items
   end
   
+  resources :users
+  resources :items
   resources :statuses
-  resources :order_items
-  resources :order_items_statuses
+  resources :order_item_statuses
 
   match '/signup', to: 'users#new', via: 'get'
 

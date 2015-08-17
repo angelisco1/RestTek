@@ -1,0 +1,12 @@
+<h1>New status</h1>
+
+<%= form_for @status do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :requires_assignee %>
+<%= f.check_box :requires_assignee %>
+<br>
+<%= f.submit 'Create' %>
+<%= link_to("Cancel", statuses_path) %>
+<% end %>
