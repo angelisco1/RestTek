@@ -4,24 +4,35 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#profile'
   root to: 'users#profile'
 
-  resources :roles do
-    resources :users
-  end
+  resources :roles
+
+  # resources :roles do
+  #   resources :users
+  # end
   
+  resources :orders
   resources :order_items
 
-  resources :orders do
-    resources :items
-  end
+  # resources :orders do
+  #   resources :items
+  # end
 
-  resources :categories do
-    resources :items
-  end
+  resources :categories
+
+  # resources :categories do
+  #   resources :items
+  # end
   
   resources :users
   resources :items
   resources :statuses
   resources :order_item_statuses
+
+  resources :permissions
+  resources :authorizations
+  
+  resources :assignments
+  
 
   match '/signup', to: 'users#new', via: 'get'
 

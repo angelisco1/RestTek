@@ -1,0 +1,6 @@
+<h1>Permissions</h1>
+<ul>
+<% @permissions.each do |permission| %>
+	<li><%= permission.name %> - <%= permission.description %></li>
+<% end %>
+</ul>

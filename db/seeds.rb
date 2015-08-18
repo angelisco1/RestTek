@@ -1,7 +1,8 @@
 roles = Role.create([
 	{name: 'Client'},
 	{name: 'Chef'},
-	{name: 'Waiter'}
+	{name: 'Waiter'},
+	{name: 'Admin'}
 ])
 
 users = User.create([
@@ -47,4 +48,24 @@ order_item_statuses = OrderItemStatus.create([
 	{status_id: statuses[0].id, order_item_id: order_items[0].id, user_id: users[2].id},
 	{status_id: statuses[0].id, order_item_id: order_items[2].id, user_id: users[3].id},
 	{status_id: statuses[1].id, order_item_id: order_items[0].id, user_id: users[1].id}
+])
+
+permissions = Permission.create([
+	{name: 'Create users', description: 'Permission for creating users'},
+	{name: 'Create items', description: 'Permission for creating items'},
+	{name: 'Create orders', description: 'Permission for creating orders'},
+	{name: 'Create categories', description: 'Permission for creating categories'}
+])
+
+authorizations = Authorization.create([
+	{role_id: 4, permission_id: 1},
+	{role_id: 4, permission_id: 2},
+	{role_id: 4, permission_id: 4},
+	{role_id: 1, permission_id: 3}
+])
+
+assignments = Assignment.create([
+	{role_id: 1, status_id: 1},
+	{role_id: 2, status_id: 2},
+	{role_id: 3, status_id: 3}
 ])

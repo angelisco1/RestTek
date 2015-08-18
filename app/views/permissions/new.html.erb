@@ -1,0 +1,12 @@
+<h1>New permission</h1>
+
+<%= form_for @permission do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<br>
+<%= f.submit 'Create' %>
+<%= link_to("Cancel", permissions_path) %>
+<% end %>

@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find_by(id: params[:id])
-		@category = Category.find_by(id: @item.category_id).name
+		
 	end
 
 	def new

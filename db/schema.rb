@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817085105) do
+ActiveRecord::Schema.define(version: 20150818081435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "role_id"
+    t.integer  "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "assignments", ["role_id"], name: "index_assignments_on_role_id", using: :btree
+  add_index "assignments", ["status_id"], name: "index_assignments_on_status_id", using: :btree
+
+  create_table "authorizations", force: :cascade do |t|
+    t.integer  "role_id"
+    t.integer  "permission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "authorizations", ["permission_id"], name: "index_authorizations_on_permission_id", using: :btree
+  add_index "authorizations", ["role_id"], name: "index_authorizations_on_role_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -66,6 +86,13 @@ ActiveRecord::Schema.define(version: 20150817085105) do
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "permissions", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

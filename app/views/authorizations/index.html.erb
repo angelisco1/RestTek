@@ -1,0 +1,6 @@
+<h1>Authorizations</h1>
+<ul>
+<% @authorizations.each do |authorization| %>
+	<li><%= authorization.role_id %> - <%= authorization.permission_id %></li>
+<% end %>
+</ul>
