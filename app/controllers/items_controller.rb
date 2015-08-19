@@ -11,8 +11,6 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@options_for_select = Category.get_categories_for_select
-		# puts @options_for_select
 	end
 
 	def create

@@ -4,8 +4,8 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.float :price
-      t.boolean :available
-      t.boolean :published
+      t.boolean :available, default: true
+      t.boolean :published, default: true
       t.references :category, index: true
 
       t.timestamps null: false

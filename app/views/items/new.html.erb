@@ -17,7 +17,7 @@
 <%= f.check_box :published %>
 <br>
 <%= f.label :category_id %>
-<%= f.select :category_id, @options_for_select %>
+<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: true} %>
 <br>
 <%= f.submit 'Create' %>
 <%= link_to("Cancel", items_path) %>

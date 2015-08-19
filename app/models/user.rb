@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
 	belongs_to :role
 	has_many :orders
 
+	validates :name, presence: true, uniqueness: true
+	validates :admin, inclusion: { in: [true, false] }
+	validates :role, presence: true
+
 	def email_required?
     	false
   	end
+
 end
