@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
 	belongs_to :role
 	has_many :orders
 
-
+	def email_required?
+    	false
+  	end
 end

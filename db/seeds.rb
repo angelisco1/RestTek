@@ -6,10 +6,10 @@ roles = Role.create([
 ])
 
 users = User.create([
-	{name: 'Paco', email: 'p@gamil.com', password: '12345678', password_confirmation: '12345678', admin: true, role_id: roles[2].id},
-	{name: 'Chicote', email: 'c@gamil.com', password: '12345678', password_confirmation: '12345678', admin: false, role_id: roles[1].id},
-	{name: 'Table_1', email: 't1@gmail.com', password: '12345678', password_confirmation: '12345678', admin: false, role_id: roles[0].id},
-	{name: 'Table_2', email: 't2@gamil.com', password: '12345678', password_confirmation: '12345678', admin: false, role_id: roles[0].id}
+	{name: 'Paco', password: '12345678', password_confirmation: '12345678', admin: true, role_id: roles[2].id},
+	{name: 'Chicote', password: '12345678', password_confirmation: '12345678', admin: false, role_id: roles[1].id},
+	{name: 'Table_1', password: '12345678', password_confirmation: '12345678', admin: false, role_id: roles[0].id},
+	{name: 'Table_2', password: '12345678', password_confirmation: '12345678', admin: false, role_id: roles[0].id}
 ])
 
 categories = Category.create([

@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by(id: params[:id])
+		# @user = User.find_by(id: params[:id])
+		@user = current_user
 	end
 
 	def profile
@@ -15,5 +16,9 @@ class UsersController < ApplicationController
 		render 'users/profile'
 	end
 
+	private
+	def user_params
+		return params.require(:user).permit(:name)
+	end
 
 end
