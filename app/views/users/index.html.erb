@@ -1,6 +1,16 @@
 <h1>Users</h1>
-<ul>
+
+<table class="index-table">
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Admin?</th>
+  </tr>
 <% @users.each do |user| %>
-	<li><%= user.name %> - <%= user.admin %></li>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.role.name %></td>
+    <td><%= user.admin %></td>
+  </tr>
 <% end %>
-</ul>
+</table>

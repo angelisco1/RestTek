@@ -1,6 +1,18 @@
 <h1>Order Items</h1>
-<ul>
+
+<table class="index-table">
+  <tr>
+    <th>Id</th>
+    <th>Order Id</th>
+    <th>Item</th>
+    <th>Notes</th>
+  </tr>
 <% @order_items.each do |order_item| %>
-	<li><%= order_item.notes %> - <%= order_item.order_id %> - <%= order_item.item_id %></li>
+  <tr>
+    <td><%= order_item.id %></td>
+    <td><%= order_item.order.id %></td>
+    <td><%= order_item.item.name %></td>
+    <td><%= order_item.notes %></td>
+  </tr>
 <% end %>
-</ul>
+</table>

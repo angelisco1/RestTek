@@ -1,6 +1,16 @@
 <h1>Assignments</h1>
-<ul>
+
+<table class="index-table">
+  <tr>
+    <th>Id</th>
+    <th>Role</th>
+    <th>Status</th>
+  </tr>
 <% @assignments.each do |assignment| %>
-	<li><%= assignment.role_id %> - <%= assignment.status_id %></li>
+  <tr>
+    <td><%= assignment.id %></td>
+    <td><%= assignment.role.name %></td>
+    <td><%= assignment.status.name %></td>
+  </tr>
 <% end %>
-</ul>
+</table>

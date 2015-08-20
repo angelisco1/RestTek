@@ -1,6 +1,18 @@
 <h1>Order Item Statuses</h1>
-<ul>
+
+<table class="index-table">
+  <tr>
+    <th>Id</th>
+    <th>User</th>
+    <th>Status</th>
+    <th>Order_Item Id</th>
+  </tr>
 <% @order_item_statuses.each do |order_item_status| %>
-	<li><%= order_item_status.user_id %> - <%= order_item_status.order_item_id %> - <%= order_item_status.status_id %></li>
+  <tr>
+    <td><%= order_item_status.id %></td>
+    <td><%= order_item_status.user.name %></td>
+    <td><%= order_item_status.status.name %></td>
+    <td><%= order_item_status.order_item.id %></td>
+  </tr>
 <% end %>
-</ul>
+</table>

@@ -1,6 +1,16 @@
 <h1>Items</h1>
-<ul>
+
+<table class="index-table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
 <% @items.each do |item| %>
-	<li><%= item.name %> - <%= item.price %>€</li>
+  <tr>
+    <td><%= item.name %></a></td>
+    <td><%= item.description %></td>
+    <td><%= item.price %>€</td>
+  </tr>
 <% end %>
-</ul>
+</table>

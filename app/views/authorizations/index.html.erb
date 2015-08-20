@@ -1,6 +1,16 @@
 <h1>Authorizations</h1>
-<ul>
+
+<table class="index-table">
+  <tr>
+    <th>Id</th>
+    <th>Role</th>
+    <th>Permission</th>
+  </tr>
 <% @authorizations.each do |authorization| %>
-	<li><%= authorization.role_id %> - <%= authorization.permission_id %></li>
+  <tr>
+    <td><%= authorization.id %></td>
+    <td><%= authorization.role.name %></td>
+    <td><%= authorization.permission.name %></td>
+  </tr>
 <% end %>
-</ul>
+</table>

@@ -44,3 +44,12 @@ footer {
 #top-bar a {
 	margin-left: 15px;	
 }
+
+.show-container li {
+	list-style: none;
+}
+
+.index-table {
+	margin: 15px;
+	vertical-align: middle;
+}
