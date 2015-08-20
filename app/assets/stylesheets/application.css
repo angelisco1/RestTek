@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+header, footer {
+	background-color: #000000;
+}
+
+header {
+	height: 100px;
+	width: 100%;
+}
+
+footer {
+	height: 50px;
+}
+
+#logo {
+	width: 10%;
+}
+
+#menu li {
+	display: inline-block;
+	margin-left: 15px;
+	color: #FFFFFF;
+}
+
+.header-content {
+	display: inline-block;
+}
+
+#top-bar a {
+	margin-left: 15px;	
+}

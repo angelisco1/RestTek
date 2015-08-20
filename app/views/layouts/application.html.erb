@@ -8,17 +8,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="top_bar">
-<% if user_signed_in? %>
-	<p><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></p>
-<% else %>
-	<p>
-	<%= link_to 'Sign_up', new_user_registration_path %> |
-	<%= link_to 'Sign_in', new_user_session_path %>
-	</p>
-<% end %>
-<%= yield %>
 
+<div class="main-container">
+	<header>
+			<img id="logo" alt="Logo RestTek" src="./images/logo1.png">
+
+			<div class="header-content" id="menu-container">
+				<ul id="menu">
+				
+				</ul>
+			</div>
+
+			<div id="top-bar" class="header-content">
+			<% if user_signed_in? %>
+				<%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+				<% else %>
+				<%= link_to 'Sign_up', new_user_registration_path %>
+				<%= link_to 'Sign_in', new_user_session_path %>
+			<% end %>
+			</div>
+			
+	</header>
+	<article class="content-container">
+	<%= yield %>
+	</article>
+
+
+	<footer>
+		
+	</footer>
+</div>
 </body>
 </html>
 

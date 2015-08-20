@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 20150818081435) do
     t.string   "name"
     t.text     "description"
     t.float    "price"
-    t.boolean  "available"
-    t.boolean  "published"
+    t.boolean  "available",   default: true
+    t.boolean  "published",   default: true
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
@@ -79,10 +79,10 @@ ActiveRecord::Schema.define(version: 20150818081435) do
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.boolean  "paid"
+    t.boolean  "paid",       default: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -102,24 +102,24 @@ ActiveRecord::Schema.define(version: 20150818081435) do
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "requires_assignee"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.boolean  "requires_assignee", default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "password"
-    t.boolean  "admin"
+    t.boolean  "admin",                  default: false
     t.integer  "role_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"

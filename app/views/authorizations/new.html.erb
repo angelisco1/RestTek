@@ -2,10 +2,10 @@
 
 <%= form_for @authorization do |f| %>
 <%= f.label :permission_id %>
-<%= f.number_field :permission_id %>
+<%= f.select :permission_id, Permission.all.collect {|c| [ c.name, c.id ] }, {include_blank: true} %>
 <br>
 <%= f.label :role_id %>
-<%= f.number_field :role_id %>
+<%= f.select :role_id, Role.all.collect {|c| [ c.name, c.id ] }, {include_blank: true} %>
 <br>
 <%= f.submit 'Create' %>
 <%= link_to("Cancel", authorizations_path) %>
