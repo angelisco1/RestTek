@@ -36,7 +36,9 @@ class CategoriesController < ApplicationController
 	end
 
 	def destroy
-		@category = Category.destroy params[:id]
+		@category = Category.find params[:id]
+		authorize @category
+		@category.destroy!
 		redirect_to categories_path
 	end
 

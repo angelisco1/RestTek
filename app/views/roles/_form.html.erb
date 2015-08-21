@@ -1,0 +1,7 @@
+<%= form_for @role do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, autofocus: :on %>
+<br>
+<%= f.submit 'Save' %>
+<%= link_to("Cancel", roles_path) %>
+<% end %>
