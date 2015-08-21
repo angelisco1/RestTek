@@ -22,6 +22,24 @@ class StatusesController < ApplicationController
 		end
 	end
 
+	def update
+		@status = Status.find params[:id]
+		if @status.update status_params
+			redirect_to statuses_path
+		else
+			render 'edit'
+		end
+	end
+
+	def edit
+		@status = Status.find params[:id]
+	end
+
+	def destroy
+		@status = Status.destroy params[:id]
+		redirect_to statuses_path
+	end
+
 	private
 	def status_params
 		return params.require(:status).permit(:name, :requires_assignee)

@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   #   resources :users
   # end
   
-  resources :orders
-  resources :order_items
+  resources :orders do
+    resources :order_items
+  end
 
   # resources :orders do
   #   resources :items

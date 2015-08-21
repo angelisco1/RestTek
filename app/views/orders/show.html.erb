@@ -3,3 +3,7 @@
 <li>Paid?: <%= @order.paid %></li>
 <li>User: <%= @user %></li>
 </ul>
+
+<!-- Poner bien la ruta para mostrar solo los items de un pedido -->
+<%= link_to 'Items', order_order_items_path(@order) %>
+<%= link_to 'Cancel', orders_path(@order) %>

@@ -53,3 +53,7 @@ footer {
 	margin: 15px;
 	vertical-align: middle;
 }
+
+.index-table td, th {
+	padding: 2px 15px;
+}

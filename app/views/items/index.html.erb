@@ -8,7 +8,7 @@
   </tr>
 <% @items.each do |item| %>
   <tr>
-    <td><%= item.name %></a></td>
+    <td><%= link_to item.name, item_path(item.id) %></a></td>
     <td><%= item.description %></td>
     <td><%= item.price %>€</td>
   </tr>

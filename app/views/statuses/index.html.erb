@@ -5,12 +5,17 @@
     <th>Id</th>
     <th>Name</th>
     <th>Require assignee?</th>
+    <th></th>
+    <th></th>    
   </tr>
 <% @statuses.each do |status| %>
   <tr>
     <td><%= status.id %></td>
     <td><%= status.name %></td>
     <td><%= status.requires_assignee %></td>
+    <td><%= link_to edit_status_path(status) do %><img src="./icons/edit.png"><% end %></td>
+    <td><%= link_to status_path(status), confirm: 'Are you sure?', method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>
+<%= link_to 'New status', new_status_path %>
