@@ -7,31 +7,39 @@ class StatusPolicy
 	end
 
 	def index?
-		@current_user.admin?
+		permission = "Index statuses"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def show?
-		@current_user.admin?
+		permission = "Show statuses"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def create?
-		@current_user.admin?
+		permission = ""
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def new?
-		@current_user.admin?
+		permission = "Create statuses"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def update?
-		@current_user.admin?
+		permission = ""
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def edit?
-		@current_user.admin?
+		permission = "Edit statuses"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def destroy?
-		@current_user.admin?
+		permission = "Delete statuses"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
+
 
 end

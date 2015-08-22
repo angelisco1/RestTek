@@ -2,14 +2,17 @@ class RolesController < ApplicationController
 
 	def index
 		@roles = Role.all
+		# authorize @role
 	end
 
 	def show
 		@role = Role.find_by(id: params[:id])
+		authorize @role
 	end
 
 	def new
 		@role = Role.new
+		authorize @role
 	end
 
 	def create
@@ -33,10 +36,13 @@ class RolesController < ApplicationController
 
 	def edit
 		@role = Role.find params[:id]
+		authorize @role
 	end
 
 	def destroy
-		@role = Role.destroy params[:id]
+		@role = Role.find params[:id]
+		authorize @role
+		@role.destroy!
 		redirect_to roles_path
 	end
 

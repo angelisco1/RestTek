@@ -2,14 +2,17 @@ class StatusesController < ApplicationController
 
 	def index
 		@statuses = Status.all
+		# authorize @status
 	end
 
 	def show
 		@status = Status.find_by(id: params[:id])
+		authorize @status
 	end
 
 	def new
 		@status = Status.new
+		authorize @status
 	end
 
 	def create
@@ -33,10 +36,13 @@ class StatusesController < ApplicationController
 
 	def edit
 		@status = Status.find params[:id]
+		authorize @status
 	end
 
 	def destroy
-		@status = Status.destroy params[:id]
+		@status = Status.find params[:id]
+		authorize @status
+		@status.destroy!
 		redirect_to statuses_path
 	end
 

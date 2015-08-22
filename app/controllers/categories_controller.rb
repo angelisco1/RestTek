@@ -2,14 +2,17 @@ class CategoriesController < ApplicationController
 
 	def index
 		@categories = Category.all
+		# authorize @category
 	end
 
 	def show
 		@category = Category.find_by(id: params[:id])
+		authorize @category
 	end
 
 	def new
 		@category = Category.new
+		authorize @category
 	end
 
 	def create
@@ -33,6 +36,7 @@ class CategoriesController < ApplicationController
 
 	def edit
 		@category = Category.find params[:id]
+		authorize @category
 	end
 
 	def destroy

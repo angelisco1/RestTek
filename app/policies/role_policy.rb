@@ -7,31 +7,38 @@ class RolePolicy
 	end
 
 	def index?
-		@current_user.admin?
+		permission = "Index roles"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def show?
-		@current_user.admin?
+		permission = "Show roles"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def create?
-		@current_user.admin?
+		permission = ""
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def new?
-		@current_user.admin?
+		permission = "Create roles"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def update?
-		@current_user.admin?
+		permission = ""
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def edit?
-		@current_user.admin?
+		permission = "Edit roles"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 	def destroy?
-		@current_user.admin?
+		permission = "Delete roles"
+		@current_user.admin? || @current_user.has_permission(permission)
 	end
 
 end
