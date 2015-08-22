@@ -1,9 +1,9 @@
-class CategoryPolicy
-	attr_reader :current_user, :category
+class StatusPolicy
+	attr_reader :current_user, :status
 
-	def initialize(current_user, category)
+	def initialize(current_user, status)
 		@current_user = current_user
-		@category = category
+		@status = status
 	end
 
 	def index?

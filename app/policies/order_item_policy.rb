@@ -1,9 +1,9 @@
-class CategoryPolicy
-	attr_reader :current_user, :category
+class OrderItemPolicy
+	attr_reader :current_user, :order_item
 
-	def initialize(current_user, category)
+	def initialize(current_user, order_item)
 		@current_user = current_user
-		@category = category
+		@order_item = order_item
 	end
 
 	def index?
