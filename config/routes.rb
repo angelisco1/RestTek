@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :statuses
   resources :order_item_statuses
 
-  resources :permissions
+  # resources :permissions
   resources :authorizations
   
   resources :assignments
