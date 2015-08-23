@@ -2,15 +2,17 @@ class OrderItemsController < ApplicationController
 
 	def index
 		@order_items = OrderItem.all
+		authorize @order_items
 	end
 
 	def show
 		@order_item = OrderItem.find_by(id: params[:id])
+		authorize @order_item
 	end
 
 	def new
 		@order_item = OrderItem.new
-		# binding.pry
+		authorize @order_item
 	end
 
 	def create

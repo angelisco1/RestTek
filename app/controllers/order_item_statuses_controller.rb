@@ -2,14 +2,17 @@ class OrderItemStatusesController < ApplicationController
 
 	def index
 		@order_item_statuses = OrderItemStatus.all
+		authorize @order_item_statuses
 	end
 
 	def show
 		@order_item_status = OrderItemStatus.find_by(id: params[:id])
+		authorize @order_item_status
 	end
 
 	def new
 		@order_item_status = OrderItemStatus.new
+		authorize @order_item_status
 	end
 
 	def create

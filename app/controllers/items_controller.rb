@@ -2,14 +2,17 @@ class ItemsController < ApplicationController
  
 	def index
 		@items = Item.all
+		authorize @items
 	end
 
 	def show
-		@item = Item.find_by(id: params[:id])		
+		@item = Item.find_by(id: params[:id])
+		authorize @item
 	end
 
 	def new
 		@item = Item.new
+		authorize @item
 	end
 
 	def create

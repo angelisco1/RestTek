@@ -2,14 +2,17 @@ class AssignmentsController < ApplicationController
 
 	def index
 		@assignments = Assignment.all
+		authorize @assignments
 	end
 
 	def show
 		@assignment = Assignment.find_by(id: params[:id])
+		authorize @assignment
 	end
 
 	def new
 		@assignment = Assignment.new
+		authorize @assignment
 	end
 
 	def create

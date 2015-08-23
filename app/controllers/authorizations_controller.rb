@@ -2,14 +2,17 @@ class AuthorizationsController < ApplicationController
 
 	def index
 		@authorizations = Authorization.all
+		authorize @authorizations
 	end
 
 	def show
 		@authorization = Authorization.find_by(id: params[:id])
+		authorize @authorization
 	end
 
 	def new
 		@authorization = Authorization.new
+		authorize @authorization
 	end
 
 	def create

@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
 
 	def index
 		@statuses = Status.all
-		# authorize @status
+		authorize @status
 	end
 
 	def show

@@ -4,15 +4,18 @@ class UsersController < ApplicationController
 	
 	def index
 		@users = User.all
+		authorize @users
 	end
 
 	def show
 		# @user = User.find_by(id: params[:id])
 		@user = current_user
+		authorize @user
 	end
 
 	def profile
 		@user = current_user
+		authorize @user
 		render 'users/profile'
 	end
 

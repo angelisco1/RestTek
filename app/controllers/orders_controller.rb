@@ -2,15 +2,18 @@ class OrdersController < ApplicationController
 
 	def index
 		@orders = Order.all
+		authorize @orders
 	end
 
 	def show
 		@order = Order.find_by(id: params[:id])
+		authorize @order
 		@user = User.find_by(id: @order.user_id).name
 	end
 
 	def new
 		@order = Order.new
+		authorize @order
 	end
 
 	def create
