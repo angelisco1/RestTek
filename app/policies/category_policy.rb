@@ -8,37 +8,37 @@ class CategoryPolicy
 
 	def index?
 		permission = "Index categories"
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def show?
 		permission = "Show categories"
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def create?
 		permission = ""
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def new?
 		permission = "Create categories"
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def update?
 		permission = ""
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def edit?
 		permission = "Edit categories"
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def destroy?
 		permission = "Delete categories"
-		@current_user.admin? || @current_user.has_permission(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 end

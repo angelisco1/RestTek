@@ -8,37 +8,37 @@ class ItemPolicy
 
 	def index?
 		# permission = "Index items"
-		# @current_user.admin? || @current_user.role.has_permission?(permission)
+		# @current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def show?
 		permission = "Show items"
-		@current_user.admin? || @current_user.role.has_permission?(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	# def create?
 	# 	permission = "Create items"
-	# 	@current_user.admin? || @current_user.role.has_permission?(permission)
+	# 	@current_user.admin? || @current_user.has_permission?(permission)
 	# end
 
 	def new?
 		permission = "Create items"
-		@current_user.admin? || @current_user.role.has_permission?(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	# def update?
 	# 	permission = ""
-	# 	@current_user.admin? || @current_user.role.has_permission?(permission)
+	# 	@current_user.admin? || @current_user.has_permission?(permission)
 	# end
 
 	def edit?
 		permission = "Edit items"
-		@current_user.admin? || @current_user.role.has_permission?(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def destroy?
 		permission = "Delete items"
-		@current_user.admin? || @current_user.role.has_permission?(permission)
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 end

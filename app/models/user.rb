@@ -14,4 +14,15 @@ class User < ActiveRecord::Base
     	false
   	end
 
+  	def has_permission? permission
+  		puts "\n\n\nOLAAAAAAAAAA\n\n\n"
+    	self.role.authorizations.each do |authorization|
+  		puts "\n\n\nOLEEEEE\n\n\n"
+    		if authorization.include? permission
+    			return true
+    		end
+    	end
+    	return false
+    end
+
 end
