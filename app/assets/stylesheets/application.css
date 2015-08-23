@@ -57,3 +57,7 @@ footer {
 .index-table td, th {
 	padding: 2px 15px;
 }
+
+.index-table input {
+	width: 50px;
+}
