@@ -10,5 +10,6 @@
 <form>
 	Amount: <input class="input-amount"></input>
 </form>
-<button class="add-button" type="submit">Add</button>
+<!-- <button id="add-button" type="submit">Add</button> -->
+<%= link_to("Add", order_items_path(order_item: {notes: "gggg", order_id: @order, item_id: @item}), method: :post) %>
 <%= link_to("Go back", items_path) %>

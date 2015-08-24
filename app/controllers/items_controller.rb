@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find_by(id: params[:id])
+		@order = current_user.orders.last
 		authorize @item
 	end
 

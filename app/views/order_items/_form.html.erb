@@ -3,10 +3,10 @@
 <%= f.text_area :notes %>
 <br>
 <%= f.label :order_id %>
-<%= f.number_field :order_id %>
+<%= f.select :order_id, Order.all.collect {|o| [ o.user.name, o.id ] }, {include_blank: true} %>
 <br>
 <%= f.label :item_id %>
-<%= f.number_field :item_id %>
+<%= f.select :item_id, Item.all.collect {|i| [ i.name, i.id ] }, {include_blank: true} %>
 <br>
 <%= f.submit 'Save' %>
 <%= link_to("Cancel", order_items_path) %>

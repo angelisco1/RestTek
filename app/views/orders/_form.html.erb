@@ -3,7 +3,7 @@
 <%= f.check_box :paid %>
 <br>
 <%= f.label :user_id %>
-<%= f.number_field :user_id %>
+<%= f.select :user_id, User.all.collect {|u| [ u.name, u.id ] }, {include_blank: true} %>
 <br>
 <%= f.submit 'Save' %>
 <%= link_to("Cancel", orders_path) %>
