@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find_by(id: params[:id])
 		authorize @order
+		@total_price = @order.get_total_price
 		@user = User.find_by(id: @order.user_id).name
 	end
 

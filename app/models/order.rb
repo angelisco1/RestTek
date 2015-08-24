@@ -8,4 +8,9 @@ class Order < ActiveRecord::Base
 		Order.where(user_id: user)
 	end
 
+	def get_total_price
+		order_items = OrderItem.where(order_id: self)
+		@total = order_items.reduce(0) { |total, x| total + x.item.price }
+	end
+
 end
