@@ -5,12 +5,16 @@
     <th>Id</th>
     <th>User</th>
     <th>Paid?</th>
+    <th></th>
+    <th></th>
   </tr>
 <% @orders.each do |order| %>
   <tr>
     <td><%= link_to order.id, order_path(order.id) %></td>
     <td><%= order.user.name %></td>
     <td><%= order.paid %></td>
+    <td><%= link_to edit_order_path(order) do %><img src="./icons/edit.png"><% end %></td>
+    <td><%= link_to order_path(order), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>

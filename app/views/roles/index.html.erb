@@ -12,7 +12,7 @@
     <td><%= role.id %></td>
     <td><%= role.name %></td>
     <td><%= link_to edit_role_path(role) do %><img src="./icons/edit.png"><% end %></td>
-    <td><%= link_to role_path(role), confirm: 'Are you sure?', method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
+    <td><%= link_to role_path(role), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,10 @@
+<%= form_for @order do |f| %>
+<%= f.label :paid %>
+<%= f.check_box :paid %>
+<br>
+<%= f.label :user_id %>
+<%= f.number_field :user_id %>
+<br>
+<%= f.submit 'Save' %>
+<%= link_to("Cancel", orders_path) %>
+<% end %>

@@ -5,12 +5,18 @@
     <th>Id</th>
     <th>Role</th>
     <th>Permission</th>
+    <th></th>
+    <th></th>
   </tr>
 <% @authorizations.each do |authorization| %>
   <tr>
     <td><%= authorization.id %></td>
     <td><%= authorization.role.name %></td>
     <td><%= authorization.permission.name %></td>
+    <td><%= link_to edit_authorization_path(authorization) do %><img src="./icons/edit.png"><% end %></td>
+    <td><%= link_to authorization_path(authorization), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>
+
+<%= link_to 'New authorization', new_authorization_path %>

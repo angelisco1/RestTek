@@ -21,10 +21,10 @@ categories = Category.create([
 ])
 
 items = Item.create([
-	{name: 'Fish and chips', description: 'Fish with chips', price: 4.50, category_id: categories[0].id, available: true, published: true},
-	{name: 'Beef', description: 'Beef with chips', price: 5.90, category_id: categories[1].id, available: true, published: true},
-	{name: 'Turkey', description: 'Turkey with salad', price: 5.0, category_id: categories[1].id, available: true, published: true},
-	{name: 'Rice', description: 'Rice with eggs and tomatoe sausage', price: 3.50, category_id: categories[2].id, available: true, published: true}
+	{name: 'Fish and chips', description: 'Fish with chips', price: 4.59, category_id: categories[0].id, available: true, published: true},
+	{name: 'Beef', description: 'Beef with chips', price: 5.95, category_id: categories[1].id, available: true, published: true},
+	{name: 'Turkey', description: 'Turkey with salad', price: 5.21, category_id: categories[1].id, available: true, published: true},
+	{name: 'Rice', description: 'Rice with eggs and tomatoe sausage', price: 3.59, category_id: categories[2].id, available: true, published: true}
 ])
 
 orders = Order.create([

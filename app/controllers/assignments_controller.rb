@@ -25,6 +25,27 @@ class AssignmentsController < ApplicationController
 		end
 	end
 
+	def update
+		@assingment = Assignment.find params[:id]
+		if @assingment.update assingment_params
+			redirect_to assingments_path
+		else
+			render 'edit'
+		end
+	end
+
+	def edit
+		@assingment = Assignment.find params[:id]
+		authorize @assingment
+	end
+
+	def destroy
+		@assingment = Assignment.find params[:id]
+		authorize @assingment
+		@assingment.destroy!
+		redirect_to assingments_path
+	end
+
 
 	private
 	def assignment_params

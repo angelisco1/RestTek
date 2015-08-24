@@ -41,4 +41,9 @@ class UserPolicy
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
+	def profile?
+		permission = "Profile users"
+		@current_user.admin? || @current_user.has_permission?(permission)
+	end
+
 end

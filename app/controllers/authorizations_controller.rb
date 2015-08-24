@@ -25,6 +25,26 @@ class AuthorizationsController < ApplicationController
 		end
 	end
 
+	def update
+		@authorization = Authorization.find params[:id]
+		if @authorization.update authorization_params
+			redirect_to authorizations_path
+		else
+			render 'edit'
+		end
+	end
+
+	def edit
+		@authorization = Authorization.find params[:id]
+		authorize @authorization
+	end
+
+	def destroy
+		@authorization = Authorization.find params[:id]
+		authorize @authorization
+		@authorization.destroy!
+		redirect_to authorizations_path
+	end
 
 	private
 	def authorization_params

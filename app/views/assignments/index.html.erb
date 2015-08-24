@@ -5,12 +5,18 @@
     <th>Id</th>
     <th>Role</th>
     <th>Status</th>
+    <th></th>
+    <th></th>
   </tr>
 <% @assignments.each do |assignment| %>
   <tr>
     <td><%= assignment.id %></td>
     <td><%= assignment.role.name %></td>
     <td><%= assignment.status.name %></td>
+    <td><%= link_to edit_assignment_path(assignment) do %><img src="./icons/edit.png"><% end %></td>
+    <td><%= link_to assignment_path(assignment), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>
+
+<%= link_to 'New assignment', new_assignment_path %>

@@ -1,0 +1,13 @@
+<%= form_for @order_item do |f| %>
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+<br>
+<%= f.label :order_id %>
+<%= f.number_field :order_id %>
+<br>
+<%= f.label :item_id %>
+<%= f.number_field :item_id %>
+<br>
+<%= f.submit 'Save' %>
+<%= link_to("Cancel", order_items_path) %>
+<% end %>

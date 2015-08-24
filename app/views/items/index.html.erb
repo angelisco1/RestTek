@@ -5,12 +5,16 @@
     <th>Name</th>
     <th>Description</th>
     <th>Price</th>
+    <ht></ht>
+    <th></th>
   </tr>
 <% @items.each do |item| %>
   <tr>
     <td><%= link_to item.name, item_path(item.id) %></a></td>
     <td><%= item.description %></td>
     <td><%= item.price %>€</td>
+    <td><%= link_to edit_item_path(item) do %><img src="./icons/edit.png"><% end %></td>
+    <td><%= link_to item_path(item), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>

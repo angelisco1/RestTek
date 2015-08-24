@@ -7,8 +7,8 @@ class ItemPolicy
 	end
 
 	def index?
-		# permission = "Index items"
-		# @current_user.admin? || @current_user.has_permission?(permission)
+		permission = "Index items"
+		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def show?
@@ -16,20 +16,20 @@ class ItemPolicy
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
-	# def create?
-	# 	permission = "Create items"
-	# 	@current_user.admin? || @current_user.has_permission?(permission)
-	# end
+	def create?
+		permission = ""
+		@current_user.admin? || @current_user.has_permission?(permission)
+	end
 
 	def new?
 		permission = "Create items"
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
-	# def update?
-	# 	permission = ""
-	# 	@current_user.admin? || @current_user.has_permission?(permission)
-	# end
+	def update?
+		permission = ""
+		@current_user.admin? || @current_user.has_permission?(permission)
+	end
 
 	def edit?
 		permission = "Edit items"

@@ -1,15 +1,3 @@
 <h1>New order item status</h1>
 
-<%= form_for @order_item_status do |f| %>
-<%= f.label :order_item_id %>
-<%= f.number_field :order_item_id %>
-<br>
-<%= f.label :status_id %>
-<%= f.number_field :status_id %>
-<br>
-<%= f.label :user_id %>
-<%= f.number_field :user_id %>
-<br>
-<%= f.submit 'Create' %>
-<%= link_to("Cancel", order_item_statuses_path) %>
-<% end %>
+<%= render 'form' %>

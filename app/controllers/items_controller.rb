@@ -25,6 +25,27 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def update
+		@item = Item.find params[:id]
+		if @item.update item_params
+			redirect_to items_path
+		else
+			render 'edit'
+		end
+	end
+
+	def edit
+		@item = Item.find params[:id]
+		authorize @item
+	end
+
+	def destroy
+		@item = Item.find params[:id]
+		authorize @item
+		@item.destroy!
+		redirect_to items_path
+	end
+
 
 	private
 	def item_params

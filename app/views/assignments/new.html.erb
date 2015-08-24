@@ -1,12 +1,3 @@
 <h1>New assignment</h1>
 
-<%= form_for @assignment do |f| %>
-<%= f.label :role_id %>
-<%= f.number_field :role_id %>
-<br>
-<%= f.label :status_id %>
-<%= f.number_field :status_id %>
-<br>
-<%= f.submit 'Create' %>
-<%= link_to("Cancel", assignments_path) %>
-<% end %>
+<%= render 'form' %>

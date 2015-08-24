@@ -6,6 +6,8 @@
     <th>Order Id</th>
     <th>Item</th>
     <th>Notes</th>
+    <th></th>
+    <th></th>
   </tr>
 <% @order_items.each do |order_item| %>
   <tr>
@@ -13,6 +15,10 @@
     <td><%= order_item.order.id %></td>
     <td><%= order_item.item.name %></td>
     <td><%= order_item.notes %></td>
+    <td><%= link_to edit_order_item_path(order_item) do %><img src="./icons/edit.png"><% end %></td>
+    <td><%= link_to order_item_path(order_item), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>
+
+<%= link_to 'New order item', new_order_order_item_path %>
