@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :items
 
   get '/items_filtered_by/:category' => 'items#items_filtered_by', as: 'items_filtered'
+  get '/orders_filtered_by/:user' => 'orders#orders_filtered_by', as: 'orders_filtered'
+  
 
   resources :orders
   resources :order_items
