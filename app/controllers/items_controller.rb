@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
 		authorize @items
 	end
 
+	def items_filtered_by
+		@items = Item.filter_items_by_category params[:category]
+		render 'index'
+	end
+
 	def show
 		@item = Item.find_by(id: params[:id])
 		@order = current_user.orders.last

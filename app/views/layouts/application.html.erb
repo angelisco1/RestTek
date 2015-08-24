@@ -15,7 +15,9 @@
 
 			<div class="header-content" id="menu-container">
 				<ul id="menu">
-					
+					<% Category.all.each do |category| %>
+						<li><%= link_to category.name, items_filtered_path(category) %></li>
+					<% end %>
 				</ul>
 			</div>
 
