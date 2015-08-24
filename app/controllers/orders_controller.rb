@@ -5,6 +5,12 @@ class OrdersController < ApplicationController
 		authorize @orders
 	end
 
+	def orders_filtered_by
+		@orders = Order.filter_orders_by_user current_user
+		render 'index'
+	end
+	
+
 	def show
 		@order = Order.find_by(id: params[:id])
 		authorize @order

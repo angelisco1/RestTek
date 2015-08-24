@@ -18,9 +18,11 @@
 					<% Category.all.each do |category| %>
 						<li><%= link_to category.name, items_filtered_path(category) %></li>
 					<% end %>
+					<li><%= link_to 'My orders', orders_filtered_path(current_user) %></li>
+					<li><%= link_to current_user.name, profile_path %></li>
 				</ul>
 			</div>
-
+		
 			<div id="top-bar" class="header-content">
 			<% if user_signed_in? %>
 				<%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
