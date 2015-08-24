@@ -7,30 +7,37 @@ class UserPolicy
 	end
 
 	def index?
+		permission = "Index users"
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def show?
+		permission = "Show users"
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def create?
+		permission = ""
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def new?
+		permission = "Create users"
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def update?
+		permission = ""
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def edit?
+		permission = "Edit users"
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
 	def destroy?
+		permission = "Delete users"
 		@current_user.admin? || @current_user.has_permission?(permission)
 	end
 
