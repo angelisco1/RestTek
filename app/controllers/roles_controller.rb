@@ -2,7 +2,7 @@ class RolesController < ApplicationController
 
 	def index
 		@roles = Role.all
-		authorize @role
+		authorize @roles
 	end
 
 	def show
