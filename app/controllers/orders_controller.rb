@@ -7,9 +7,18 @@ class OrdersController < ApplicationController
 
 	def orders_filtered_by
 		@orders = Order.filter_orders_by_user current_user
-		render 'index'
+		#render 'index'
 	end
 	
+	def send_to_kitchen
+		@order = params[:order]
+		oris = OrderItem.where(order: @order)
+
+		oris.map do |order_item|
+			OrderItemStatus.find_by(order_item: order_item).update(status: Status.find_by(name: "Sent"))
+		end
+		redirect_to orders_filtered_path(current_user)
+	end
 
 	def show
 		@order = Order.find_by(id: params[:id])

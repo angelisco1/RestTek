@@ -10,17 +10,17 @@ class User < ActiveRecord::Base
 	validates :admin, inclusion: { in: [true, false] }
 	validates :role, presence: true
 
-	def email_required?
-    	false
-  	end
+  def email_required?
+  	false
+	end
 
-  	def has_permission? permission
-    	self.role.authorizations.each do |authorization|
-    		if authorization.include? permission
-    			return true
-    		end
-    	end
-    	return false
-    end
+	def has_permission? permission
+  	self.role.permissions.each do |perm|
+      if perm.name.eql? permission
+  			return true
+  		end
+  	end
+  	return false
+  end
 
 end

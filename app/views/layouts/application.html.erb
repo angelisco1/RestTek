@@ -28,7 +28,7 @@
 			<div id="top-bar" class="header-content">
 			<% if user_signed_in? %>
 				<%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
-				<% else %>
+			<% else %>
 				<%= link_to 'Sign_up', new_user_registration_path %>
 				<%= link_to 'Sign_in', new_user_session_path %>
 			<% end %>
@@ -38,11 +38,17 @@
 	<article class="content-container">
 	<%= yield %>
 	</article>
-
+	
+	<aside>
+    <ul id="menu-aside">
+    
+    </ul>
+	</aside>
 
 	<footer>
 		
 	</footer>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<%= debug(params) if Rails.env.development? %>
 </div>
 </body>

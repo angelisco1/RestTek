@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
 	belongs_to :user
-	has_many :order_items
+	has_many :order_items, :dependent => :delete_all
 	has_many :items, through: :order_items
     validates :user, presence: true
 

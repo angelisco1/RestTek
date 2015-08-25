@@ -1,8 +1,11 @@
 class StatusesController < ApplicationController
+		skip_before_action :verify_authenticity_token
+		respond_to :json
 
 	def index
 		@statuses = Status.all
-		authorize @statuses
+		# authorize @statuses
+		respond_with @statuses
 	end
 
 	def show

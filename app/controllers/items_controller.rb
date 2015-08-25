@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find_by(id: params[:id])
-		@order = current_user.orders.last
+		@order = current_user.orders.find_by(paid: false) || Order.create(user: current_user)
 		authorize @item
 	end
 

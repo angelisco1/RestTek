@@ -12,9 +12,9 @@
 <% @order_item_statuses.each do |order_item_status| %>
   <tr>
     <td><%= order_item_status.id %></td>
-    <td><%= order_item_status.user.name %></td>
+    <td><%= order_item_status.user ? order_item_status.user.name : '' %></td>
     <td><%= order_item_status.status.name %></td>
-    <td><%= order_item_status.order_item.id %></td>
+    <td><%= order_item_status.order_item ? order_item_status.order_item.id : ''  %></td>
     <td><%= link_to edit_order_item_status_path(order_item_status) do %><img src="./icons/edit.png"><% end %></td>
     <td><%= link_to order_item_status_path(order_item_status), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
   </tr>

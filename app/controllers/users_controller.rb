@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 
 	def profile
 		@user = current_user
-		authorize @user
-		render 'users/profile'
+		# authorize @user
+		# render 'users/profile'
 	end
 
 	private

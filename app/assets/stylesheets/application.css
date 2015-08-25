@@ -34,7 +34,10 @@ footer {
 #menu li {
 	display: inline-block;
 	margin-left: 15px;
-	color: #FFFFFF;
+}
+
+header a {
+	color: #FC961D;
 }
 
 .header-content {

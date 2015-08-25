@@ -17,6 +17,8 @@ class OrderItemsController < ApplicationController
 
 	def create
 		@order_item = OrderItem.new order_item_params
+		OrderItemStatus.create(order_item: @order_item, status: Status.find_by(name: 'Adding items'))
+		# binding.pry
 		if @order_item.save
 			redirect_to order_items_path
 		else
