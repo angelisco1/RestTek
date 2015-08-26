@@ -1,4 +1,4 @@
-<h1><%= @order.id %></h1>
+<h1 class="order-id"><%= @order.id %></h1>
 <ul class="show-container">
 <li>Paid?: <%= @order.paid %></li>
 <li>User: <%= @user %></li>
@@ -9,12 +9,18 @@
     <th>Name</th>
     <th>Status</th>
     <th>Price</th>
+    <th>Change status</th>
+    <th></th>
   </tr>
 <% @order.order_items.each do |order_item| %>
   <tr>
     <td><%= order_item.item.name %></td>
     <td><%= OrderItemStatus.find_by(order_item_id: order_item.id) ? OrderItemStatus.find_by(order_item_id: order_item.id).status.name : '' %></td>
     <td><%= order_item.item.price %>€</td>
+    <%= form_tag change_status_path(order_item) do %>
+    <td><%= select_tag :status_id, options_for_select(@statuses, "") %></td>
+    <td><%= submit_tag 'Change status!' %></td>
+    <% end %>
   </tr>
 <% end %>
   <tr>
@@ -26,6 +32,6 @@
 
 <!-- Poner bien la ruta para mostrar solo los items de un pedido -->
 <%= link_to 'Items', order_items_path(@order) %>
-<%= link_to 'Cancel', orders_path(@order) %>
-
 <%= link_to 'Send order', send_to_kitchen_path(@order) %>
+ <!-- , :method => :post  -->
+<%= link_to 'Cancel', orders_path(@order) %>

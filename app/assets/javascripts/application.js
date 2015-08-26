@@ -12,18 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-	var request = $.getJSON('/statuses', paintMenu);
-	
-	function paintMenu(request) {
-		var statuses = request;
-		console.log(request);
-		statuses.forEach(function(status){
-			var menu = '<li id="' + status.id + '">' + status.name + '</li>';
-			$('#menu-aside').append(menu);
-		});
-	}
-});
+

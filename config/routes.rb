@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   get '/orders_filtered_by/:user' => 'orders#orders_filtered_by', as: 'orders_filtered'
 
   get '/send_to_kitchen/:order' => 'orders#send_to_kitchen', as: 'send_to_kitchen'
+  get '/assign_me_an_order/:id' => 'orders#assign_me_an_order', as: 'assign_me_an_order'
+
+  post '/change_status/:id' => 'order_item_statuses#change_status', as: 'change_status'
   
 
   resources :orders

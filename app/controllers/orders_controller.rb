@@ -7,7 +7,16 @@ class OrdersController < ApplicationController
 
 	def orders_filtered_by
 		@orders = Order.filter_orders_by_user current_user
-		#render 'index'
+		render 'index'
+	end
+
+	def assign_me_an_order
+		@order = Order.find(params[:id])
+		order_item_s = OrderItemStatus.where(order_item_id: OrderItem.where(order_id: @order.id))
+		order_item_s.map do |x|
+			OrderItemStatus.find(x).update(user: current_user)
+		end
+		redirect_to orders_filtered_path(current_user)
 	end
 	
 	def send_to_kitchen
@@ -22,7 +31,8 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find_by(id: params[:id])
-		authorize @order
+		# authorize @order
+		@statuses = Status.all.collect {|s| [ s.name, s.id ] }
 		@total_price = @order.get_total_price
 		@user = User.find_by(id: @order.user_id).name
 	end
