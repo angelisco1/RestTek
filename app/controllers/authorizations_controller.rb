@@ -1,13 +1,14 @@
 class AuthorizationsController < ApplicationController
 
 	def index
-		@authorizations = Authorization.all
-		authorize @authorizations
+		# @authorizations = Authorization.all
+		@authorizations = policy_scope(Authorization)
+		# authorize @authorizations
 	end
 
 	def show
 		@authorization = Authorization.find_by(id: params[:id])
-		authorize @authorization
+		# authorize @authorization
 	end
 
 	def new

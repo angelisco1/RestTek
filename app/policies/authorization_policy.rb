@@ -1,9 +1,21 @@
 class AuthorizationPolicy
+
+	class Scope
 	attr_reader :current_user, :authorization
 
-	def initialize(current_user, authorization)
-		@current_user = current_user
-		@authorization = authorization
+		def initialize(current_user, authorization)
+			@current_user = current_user
+			@authorization = authorization
+		end
+
+		def resolve
+			if current_user.admin?
+				authorization.all
+			else
+				false
+			end
+		end
+
 	end
 
 	def index?

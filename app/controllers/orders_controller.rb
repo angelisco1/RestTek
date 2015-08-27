@@ -1,12 +1,15 @@
 class OrdersController < ApplicationController
 
 	def index
-		@orders = Order.all
-		authorize @orders
+		# @orders = Order.all
+		@orders = policy_scope(Order)
+		# binding.pry
+		# authorize @orders
 	end
 
 	def orders_filtered_by_user
-		@orders = Order.filter_orders_by_user current_user
+		# @orders = Order.filter_orders_by_user current_user
+		@orders = policy_scope(Order)
 		render 'index'
 	end
 
@@ -16,7 +19,7 @@ class OrdersController < ApplicationController
 		order_item_s.map do |x|
 			OrderItemStatus.find(x).update(user: current_user)
 		end
-		redirect_to orders_filtered_path(current_user)
+		redirect_to orders_filtered_by_user_path(current_user)
 	end
 	
 	def send_to_kitchen
@@ -26,7 +29,7 @@ class OrdersController < ApplicationController
 		oris.map do |order_item|
 			OrderItemStatus.find_by(order_item: order_item).update(status: Status.find_by(name: "Sent"))
 		end
-		redirect_to orders_filtered_path(current_user)
+		redirect_to orders_filtered_by_user_path(current_user)
 	end
 
 	def show

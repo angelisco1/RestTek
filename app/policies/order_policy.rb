@@ -1,10 +1,25 @@
 class OrderPolicy
+
+	class Scope
 	attr_reader :current_user, :order
 
-	def initialize(current_user, order)
-		@current_user = current_user
-		@order = order
+		def initialize(current_user, order)
+			@current_user = current_user
+			@order = order
+		end
+
+		def resolve
+			if current_user.admin?
+				order.all
+			elsif current_user.role.name == 'Client'
+				order.where(user_id: current_user.id)
+			else
+				order.all
+			end
+		end
+
 	end
+
 
 	def index?
 		permission = "Index orders"

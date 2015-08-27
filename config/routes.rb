@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#profile'
   root to: 'users#profile'
 
+  
+
   resources :roles
 
   # resources :roles do

@@ -4,8 +4,7 @@ class StatusesController < ApplicationController
 
 	def index
 		@statuses = Status.all
-		# authorize @statuses
-		respond_with @statuses
+		authorize @statuses
 	end
 
 	def show

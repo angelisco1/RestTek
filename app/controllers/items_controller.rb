@@ -1,11 +1,13 @@
 class ItemsController < ApplicationController
  
 	def index
-		@items = Item.all
-		authorize @items
+		# @items = Item.all
+		@items = policy_scope(Item)
+		# authorize @items
 	end
 
 	def items_filtered_by_category
+		# @items = policy_scope(Item)
 		@items = Item.filter_items_by_category params[:category]
 		render 'index'
 	end

@@ -1,13 +1,15 @@
 class AssignmentsController < ApplicationController
 
 	def index
-		@assignments = Assignment.all
-		authorize @assignments
+		# @assignments = Assignment.all
+		@assignments = policy_scope(Assignment)
+		# authorize @assignments
 	end
 
 	def show
-		@assignment = Assignment.find_by(id: params[:id])
-		authorize @assignment
+		# @assignment = Assignment.find_by(id: params[:id])
+		@assignments = policy_scope(Assignment)
+		# authorize @assignment
 	end
 
 	def new

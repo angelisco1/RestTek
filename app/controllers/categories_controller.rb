@@ -1,13 +1,16 @@
 class CategoriesController < ApplicationController
 
 	def index
-		@categories = Category.all
+		# @categories = Category.all
+		# binding.pry
+		@categories = policy_scope(Category)
 		# authorize @category
 	end
 
 	def show
+		# @category = Category.find_by(id: params[:id])
 		@category = Category.find_by(id: params[:id])
-		authorize @category
+		# authorize @category
 	end
 
 	def new

@@ -1,9 +1,21 @@
 class AssignmentPolicy
+
+	class Scope
 	attr_reader :current_user, :assignment
 
-	def initialize(current_user, assignment)
-		@current_user = current_user
-		@assignment = assignment
+		def initialize(current_user, assignment)
+			@current_user = current_user
+			@assignment = assignment
+		end
+
+		def resolve
+			if current_user.admin?
+				assignment.all
+			else
+				
+			end
+		end
+
 	end
 
 	def index?

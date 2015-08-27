@@ -1,10 +1,20 @@
 class CategoryPolicy
+	
+	class Scope
 	attr_reader :current_user, :category
 
-	def initialize(current_user, category)
-		@current_user = current_user
-		@category = category
+		def initialize(current_user, category)
+			@current_user = current_user
+			@category = category
+		end
+
+		def resolve
+			if current_user.admin?
+				category.all
+			end
+		end 
 	end
+
 
 	def index?
 		permission = "Index categories"

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!
+	# before_action :authenticate_user!
+	# skip_before_action :authenticate_user!
 
 	
 	def index
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
 
 	def profile
 		@user = current_user
-		# authorize @user
+		authorize @user
 		# render 'users/profile'
 	end
 
