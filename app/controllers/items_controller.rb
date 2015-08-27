@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 		authorize @items
 	end
 
-	def items_filtered_by
+	def items_filtered_by_category
 		@items = Item.filter_items_by_category params[:category]
 		render 'index'
 	end

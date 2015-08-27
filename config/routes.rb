@@ -27,8 +27,9 @@ Rails.application.routes.draw do
   resources :users
   resources :items
 
-  get '/items_filtered_by/:category' => 'items#items_filtered_by', as: 'items_filtered'
-  get '/orders_filtered_by/:user' => 'orders#orders_filtered_by', as: 'orders_filtered'
+  get '/items_filtered_by_category/:category' => 'items#items_filtered_by_category', as: 'items_filtered_by_category'
+  get '/orders_filtered_by_user/:user' => 'orders#orders_filtered_by_user', as: 'orders_filtered_by_user'
+  get '/order_items_filtered_by_status/:status' => 'order_items#order_items_filtered_by_status', as: 'order_items_filtered_by_status'
 
   get '/send_to_kitchen/:order' => 'orders#send_to_kitchen', as: 'send_to_kitchen'
   get '/assign_me_an_order/:id' => 'orders#assign_me_an_order', as: 'assign_me_an_order'

@@ -15,8 +15,8 @@
     <td><%= order_item.order ? order_item.order.id : '' %></td>
     <td><%= order_item.item.name %></td>
     <td><%= order_item.notes %></td>
-    <td><%= link_to edit_order_item_path(order_item) do %><img src="./icons/edit.png"><% end %></td>
-    <td><%= link_to order_item_path(order_item), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="./icons/delete.png"><% end %></td>
+    <td><%= link_to edit_order_item_path(order_item) do %><img src="/icons/edit.png"><% end %></td>
+    <td><%= link_to order_item_path(order_item), data: {confirm: 'Are you sure?'}, method: 'Delete' do %><img src="/icons/delete.png"><% end %></td>
   </tr>
 <% end %>
 </table>

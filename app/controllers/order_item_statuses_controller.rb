@@ -13,7 +13,7 @@ class OrderItemStatusesController < ApplicationController
 	def change_status
 		@order_item_status = OrderItemStatus.find_by(order_item_id: params[:id])
 		@order_item_status.update(status: Status.find(params[:status_id]))
-		redirect_to orders_filtered_path(current_user)
+		redirect_to orders_filtered_by_user_path(current_user)
 	end
 
 	def new

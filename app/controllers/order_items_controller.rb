@@ -5,6 +5,11 @@ class OrderItemsController < ApplicationController
 		authorize @order_items
 	end
 
+	def order_items_filtered_by_status
+		@order_items = OrderItem.filter_order_items_by_status params[:status]
+		render 'index'
+	end
+
 	def show
 		@order_item = OrderItem.find_by(id: params[:id])
 		authorize @order_item
@@ -18,7 +23,6 @@ class OrderItemsController < ApplicationController
 	def create
 		@order_item = OrderItem.new order_item_params
 		OrderItemStatus.create(order_item: @order_item, status: Status.find_by(name: 'Adding items'))
-		# binding.pry
 		if @order_item.save
 			redirect_to order_items_path
 		else

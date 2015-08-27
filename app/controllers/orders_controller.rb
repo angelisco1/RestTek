@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 		authorize @orders
 	end
 
-	def orders_filtered_by
+	def orders_filtered_by_user
 		@orders = Order.filter_orders_by_user current_user
 		render 'index'
 	end
