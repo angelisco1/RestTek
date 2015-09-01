@@ -1,7 +1,8 @@
 class RolesController < ApplicationController
 
 	def index
-		@roles = Role.all
+		# @roles = Role.all
+		@roles = policy_scope(Role)
 		authorize @roles
 	end
 

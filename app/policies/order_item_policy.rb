@@ -1,44 +1,50 @@
-class OrderItemPolicy
-	attr_reader :current_user, :order_item
-
-	def initialize(current_user, order_item)
-		@current_user = current_user
-		@order_item = order_item
-	end
-
+class OrderItemPolicy < ApplicationPolicy
+	
 	def index?
 		permission = "Index order_items"
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
 	end
 
 	def show?
 		permission = "Show order_items"
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
 	end
 
 	def create?
 		permission = ""
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
 	end
 
 	def new?
 		permission = "Create order_items"
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
 	end
 
 	def update?
 		permission = ""
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
 	end
 
 	def edit?
 		permission = "Edit order_items"
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
 	end
 
 	def destroy?
 		permission = "Delete order_items"
-		@current_user.admin? || @current_user.has_permission?(permission)
+		@user.admin? || @user.has_permission?(permission)
+	end
+
+	class Scope < Scope
+
+		def resolve
+			if user.admin?
+				scope.all
+			elsif user.role == 'Client'
+				scope.all
+				# Aqui deberia de ir los order_items de los pedidos del cliente
+			end
+		end
 	end
 
 end

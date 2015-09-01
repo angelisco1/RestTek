@@ -4,12 +4,12 @@ class OrdersController < ApplicationController
 		# @orders = Order.all
 		@orders = policy_scope(Order)
 		# binding.pry
-		# authorize @orders
+		authorize @orders
 	end
 
 	def orders_filtered_by_user
-		# @orders = Order.filter_orders_by_user current_user
-		@orders = policy_scope(Order)
+		@orders = Order.filter_orders_by_user current_user
+		# @orders = policy_scope(Order)
 		render 'index'
 	end
 

@@ -3,13 +3,13 @@ class AssignmentsController < ApplicationController
 	def index
 		# @assignments = Assignment.all
 		@assignments = policy_scope(Assignment)
-		# authorize @assignments
+		authorize @assignments
 	end
 
 	def show
-		# @assignment = Assignment.find_by(id: params[:id])
-		@assignments = policy_scope(Assignment)
-		# authorize @assignment
+		@assignment = Assignment.find_by(id: params[:id])
+		# @assignments = policy_scope(Assignment)
+		authorize @assignment
 	end
 
 	def new
@@ -30,7 +30,7 @@ class AssignmentsController < ApplicationController
 	def update
 		@assingment = Assignment.find params[:id]
 		if @assingment.update assingment_params
-			redirect_to assingments_path
+			redirect_to assignments_path
 		else
 			render 'edit'
 		end
@@ -45,7 +45,7 @@ class AssignmentsController < ApplicationController
 		@assingment = Assignment.find params[:id]
 		authorize @assingment
 		@assingment.destroy!
-		redirect_to assingments_path
+		redirect_to assignments_path
 	end
 
 
