@@ -38,11 +38,10 @@ class OrderItemPolicy < ApplicationPolicy
 	class Scope < Scope
 
 		def resolve
-			if user.admin?
+			if user.admin? || user.role.name == 'Chef'
 				scope.all
-			elsif user.role == 'Client'
-				scope.all
-				# Aqui deberia de ir los order_items de los pedidos del cliente
+			elsif user.role.name == 'Client'
+				scope.where(order_id: Order.where(user_id: user))
 			end
 		end
 	end

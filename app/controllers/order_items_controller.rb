@@ -1,8 +1,8 @@
 class OrderItemsController < ApplicationController
 
 	def index
-		@order_items = OrderItem.all
-		# @order_items = policy_scope(OrderItem)
+		# @order_items = OrderItem.all
+		@order_items = policy_scope(OrderItem)
 		authorize @order_items
 	end
 
