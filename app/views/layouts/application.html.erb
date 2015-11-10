@@ -19,7 +19,7 @@
 						<li><%= link_to category.name, items_filtered_by_category_path(category) %></li>
 					<% end %>
 					<% if user_signed_in? %>
-						<li><%= link_to 'My orders', orders_filtered_by_user_path(current_user) %></li>
+						<li><%= link_to 'My orders', orders_path %></li>
 						<li><%= link_to "Hello #{current_user.name}!", profile_path %></li>
 					<% end %>
 				</ul>
